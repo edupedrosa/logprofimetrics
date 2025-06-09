@@ -226,7 +226,8 @@ on = st.toggle("Visualizar dados")
 if on:
     st.subheader("Detalhes dos Dados")
     if not df.empty:
-        st.dataframe(df)  # Exibir os dados como um dataframe interativo
+        # Exibir os dados como um dataframe interativo, excluindo a coluna LEGENDA
+        st.dataframe(df.drop(columns=["LEGENDA"]), use_container_width=True)
     else:
         st.warning("Nenhum dado encontrado com os filtros aplicados.")
 
